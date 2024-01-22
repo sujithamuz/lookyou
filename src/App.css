@@ -1,0 +1,7 @@
+.p-button.p-button-secondary.p-button-outlined, .p-buttonset.p-button-secondary > .p-button.p-button-outlined, .p-splitbutton.p-button-secondary > .p-button.p-button-outlined, .p-fileupload-choose.p-button-secondary.p-button-outlined {
+  background-color: transparent;
+  color: #64748B;
+  border: 1px solid;
+  border-radius: 10px;
+  width: 100px;
+}
