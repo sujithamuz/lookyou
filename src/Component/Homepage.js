@@ -10,6 +10,7 @@ function Homepage() {
             <img src={logo}/>
           </li>
           <li className="list-inline-item">suji</li>
+          suji
         </ul>
       </div>
     </div>

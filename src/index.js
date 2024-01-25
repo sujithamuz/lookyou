@@ -5,13 +5,15 @@ import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "primereact/resources/themes/lara-light-cyan/theme.css";
-
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <GoogleOAuthProvider clientId="283030289818-ocsssm9ui5dbiqlkv7f1jkqn61ja9q23.apps.googleusercontent.com">
+      <App />
+    </GoogleOAuthProvider>
   </React.StrictMode>
 );
 

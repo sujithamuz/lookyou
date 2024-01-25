@@ -9,9 +9,9 @@ import thirdcaro from "../images/thirdcaro.svg";
 import fourthcaro from "../images/fourthcaro.svg";
 import fivethcaro from "../images/fivethcaro.svg";
 import { useNavigate } from "react-router-dom";
-
+import { useGoogleLogin } from "@react-oauth/google";
 import ForgotPassword from "./ForgotPassword";
-
+import axios from "axios";
 function Login() {
   const [modalShow, setModalShow] = useState(false);
   const navigate = useNavigate("");
@@ -19,15 +19,41 @@ function Login() {
   const handleClick = () => {
     navigate("/createaccount");
   };
-  const handleSubmit =()=>{
-    navigate('/homepage')
-  }
+  const handleSubmit = () => {
+    navigate("/homepage");
+  };
+  const login = useGoogleLogin({
+    onSuccess: async (response) => {
+      try {
+        console.log(response.access_token);
+        const res = await axios.get(
+          "https://www.googleapis.com/oauth2/v3/userinfo",
+          {
+            headers: {
+              Authorization: `Bearer ${response.access_token}`,
+            },
+          }
+        );
+        console.log(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+      navigate("/Homepage");
+    },
+  });
   return (
     <div className="container-fluid">
       <div class="row ">
         <div class="col-sm-4" style={{ backgroundColor: "white" }}>
           <div>
-            <p style={{ fontSize: 40, fontWeight: "700", color: "#123457",fontFamily:'K2D' }}>
+            <p
+              style={{
+                fontSize: 40,
+                fontWeight: "700",
+                color: "#123457",
+                fontFamily: "K2D",
+              }}
+            >
               looksyou
             </p>
           </div>
@@ -42,7 +68,10 @@ function Login() {
                   <div className="text-center">
                     <img src={firstcaro} style={{ height: 348, width: 248 }} />
                   </div>
-                  <div className="text-center px-5" style={{fontWeight:700,fontSize:18}}>
+                  <div
+                    className="text-center px-5"
+                    style={{ fontWeight: 700, fontSize: 18 }}
+                  >
                     To know about jobs, business, economies trades and other
                     service globally
                   </div>
@@ -51,7 +80,10 @@ function Login() {
                   <div className="text-center">
                     <img src={secondcaro} style={{ height: 348, width: 248 }} />
                   </div>
-                  <div className="text-center px-5"  style={{fontWeight:700,fontSize:18}}>
+                  <div
+                    className="text-center px-5"
+                    style={{ fontWeight: 700, fontSize: 18 }}
+                  >
                     Find a service provider nearby you professionals,
                     technicians & non - technicians
                   </div>
@@ -60,7 +92,10 @@ function Login() {
                   <div className="text-center ">
                     <img src={thirdcaro} style={{ height: 348, width: 248 }} />
                   </div>
-                  <div className="text-center px-5" style={{fontWeight:700,fontSize:18}}>
+                  <div
+                    className="text-center px-5"
+                    style={{ fontWeight: 700, fontSize: 18 }}
+                  >
                     Find a service provider nearby you professionals,
                     technicians & non - technicians
                   </div>
@@ -69,7 +104,10 @@ function Login() {
                   <div className="text-center">
                     <img src={fourthcaro} style={{ height: 348, width: 248 }} />
                   </div>
-                  <div className="text-center px-5"  style={{fontWeight:700,fontSize:18}} >
+                  <div
+                    className="text-center px-5"
+                    style={{ fontWeight: 700, fontSize: 18 }}
+                  >
                     Find a service provider nearby you professionals,
                     technicians & non - technicians
                   </div>
@@ -78,7 +116,10 @@ function Login() {
                   <div className="text-center">
                     <img src={fivethcaro} style={{ height: 348, width: 248 }} />
                   </div>
-                  <div className="text-center px-5"  style={{fontWeight:700,fontSize:18}}>
+                  <div
+                    className="text-center px-5"
+                    style={{ fontWeight: 700, fontSize: 18 }}
+                  >
                     Media to share news, announcements thoughts, tales, live
                     videos and all
                   </div>
@@ -146,17 +187,31 @@ function Login() {
 
             <h4
               className="cardheader text-center"
-              style={{ fontWeight: 600, fontSize: 24 ,fontFamily:'K2D'}}
+              style={{ fontWeight: 600, fontSize: 24, fontFamily: "K2D" }}
             >
               Login in to looksyou
             </h4>
-            <p  style={{ fontWeight:500,fontSize:16 }} >
-                To start the finding jobs and get idea’s in
-                <span style={{ fontWeight:700,fontSize:19,fontFamily:'K2D',color: "#123457" }}> looksyou </span>
-              </p>
+            <p style={{ fontWeight: 500, fontSize: 16 }}>
+              To start the finding jobs and get idea’s in
+              <span
+                style={{
+                  fontWeight: 700,
+                  fontSize: 19,
+                  fontFamily: "K2D",
+                  color: "#123457",
+                }}
+              >
+                {" "}
+                looksyou{" "}
+              </span>
+            </p>
             <div className="row flex ">
               <div className="col">
-                <button type="button" class=" g-button ">
+                <button
+                  type="button"
+                  onClick={() => login()}
+                  class=" g-button "
+                >
                   <img src={google} />
                   &nbsp;&nbsp;&nbsp;Google
                 </button>
@@ -242,7 +297,11 @@ function Login() {
                 </div>
 
                 <div class="d-grid gap-2  mx-auto">
-                  <button class="btn btn-primary"  onClick={handleSubmit} type="button">
+                  <button
+                    class="btn btn-primary"
+                    onClick={handleSubmit}
+                    type="button"
+                  >
                     Login
                   </button>
                 </div>
