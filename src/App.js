@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import CreateAccount from "./Component/CreateAccount";
 import Homepage from "./Component/Homepage";
+import Manuvallogin from "./Component/Manuvallogin";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/createaccount" element={<CreateAccount />} />
           <Route path="/homepage" element={<Homepage />} />
+          <Route path="/looksyou" element={<Manuvallogin />} />
         </Routes>
       </Router>
     </div>

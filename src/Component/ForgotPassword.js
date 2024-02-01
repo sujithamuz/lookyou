@@ -1,41 +1,39 @@
-import React from "react";
-import Modal from "react-bootstrap/Modal";
+import React,{useState} from "react";
+
+import {
+  MDBBtn,
+  MDBModal,
+  MDBModalDialog,
+  MDBModalContent,
+  MDBModalHeader,
+  MDBModalTitle,
+  MDBModalBody,
+  MDBModalFooter,
+} from 'mdb-react-ui-kit';
 
 const ForgotPassword = (props) => {
+  const [staticModal, setStaticModal] = useState(false);
+
+  const toggleOpen = () => setStaticModal(!staticModal);
   return (
     <>
-      <Modal
-        {...props}
-        size="xxl"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Body>
-          <h4 className="text-center">Forgot Password</h4>
-          <p>
-            No worries! Let us know your email and we'll send you recovery
-            instructions.
-          </p>
-          <div>
-            <form>
-              <div class="mb-3 text-center">
-                <input
-                  type="email"
-                  class="form-control"
-                  placeholder="Enter your email"
-                  id="exampleInputPassword1"
-                />
-              </div>
-
-              <div class="d-grid gap-2 col-6 mx-auto ">
-                <button class="btn btn-primary" type="button">
-                  Recover my password
-                </button>
-              </div>
-            </form>
-          </div>
-        </Modal.Body>
-      </Modal>
+     <MDBModal staticBackdrop tabIndex='-1' open={staticModal} setOpen={setStaticModal}>
+        <MDBModalDialog>
+          <MDBModalContent>
+            <MDBModalHeader>
+              <MDBModalTitle>Modal title</MDBModalTitle>
+              <MDBBtn className='btn-close' color='none' onClick={toggleOpen}></MDBBtn>
+            </MDBModalHeader>
+            <MDBModalBody>...</MDBModalBody>
+            <MDBModalFooter>
+              <MDBBtn color='secondary' onClick={toggleOpen}>
+                Close
+              </MDBBtn>
+              <MDBBtn>Understood</MDBBtn>
+            </MDBModalFooter>
+          </MDBModalContent>
+        </MDBModalDialog>
+      </MDBModal>
     </>
   );
 };

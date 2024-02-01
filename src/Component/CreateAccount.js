@@ -1,213 +1,272 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
-import google from "../images/google.svg";
-import facebook from "../images/facebook.svg";
 import firstcaro from "../images/firstcaro.svg";
 import secondcaro from "../images/secondcaro.svg";
 import thirdcaro from "../images/thirdcaro.svg";
 import fourthcaro from "../images/fourthcaro.svg";
 import fivethcaro from "../images/fivethcaro.svg";
+import { MDBInput ,MDBBtn} from "mdb-react-ui-kit";
 import "./Login.css";
 import logo from "../images/logo.svg";
 import { useNavigate } from "react-router-dom";
 
 function CreateAccount() {
-    const navigate=useNavigate('')
-    const handleClick=()=>{
-        navigate('/login')
-    }
+  const navigate = useNavigate("");
+  const handleClick = () => {
+    navigate("/looksyou");
+  };
   return (
     <>
       <div className="container-fluid">
         <div class="row ">
           <div
-            class="col-sm-8 container"
-            style={{ backgroundColor: "#f9f9f9", height: "100vh" }}
+            class="col-sm-8"
+            style={{ backgroundColor: "#F8FBFF",height:'100vh'}}
           >
             <div>
-              <p style={{ fontSize: 40, fontWeight: "700", color: "#123457",fontFamily:'K2D' }}>
-                looksyou
-              </p>
+              <div className="header">
+                <h3 className="app-name">looksyou</h3>
+              </div>
             </div>
-            <div
-              className=" container  card px-5 login-card"
-              style={{
-                height: 580,
-                width: 480,
-                top: 19,
-                left:0,
-                border: "none",
-                borderRadius: 5,
-                boxShadow: "0 3px 3px rgb(0 0 0 / 0.1)",
-              }}
-            >
-              <div className="text-center">
-                <img src={logo} style={{ height: 77, width: 62 }} />
-              </div>
-
-              <h4
-                className="cardheader text-center"
-                style={{ fontWeight: 600, fontSize: 24,fontFamily:'K2D' }}
-              >
-               Create your account
-              </h4>
-              <p  style={{ fontWeight:500,fontSize:16 }} >
-                To start the finding jobs and get idea’s in
-                <span style={{ fontWeight:700,fontSize:19,fontFamily:'K2D',color: "#123457" }}> looksyou </span>
-              </p>
-              <div className="row flex ">
-                <div className="col">
-                  <button type="button" class=" g-button ">
-                    <img src={google} />
-                    &nbsp;&nbsp;&nbsp;Google
-                  </button>
-                </div>
-                <div className="col">
-                  <button type="button" class="  g-button text-center">
-                    <img src={facebook} />
-                    &nbsp;&nbsp;&nbsp;Facebook
-                  </button>
-                </div>
-              </div>
-              
-              <div class="headline">
-                <p className="para-line">or continue with</p>
-              </div>
-
-              <div>
-                <form>
-                  <div class="mb-3 text-center">
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="exampleInputEmail1"
-                      placeholder="Email"
-                      aria-describedby="emailHelp"
-                    />
-                  </div>
-                  <div class="mb-3 text-center">
-                    <input
-                      type="password"
-                      class="form-control"
-                      placeholder="Create Password"
-                      id="exampleInputPassword1"
-                    />
-                  </div>
-                  <div className="text-center">
-                    <p style={{ fontSize: 12 }}>
-                      By clicking Create account or Log in, you agree to the
-                      <span>
-                        <a href="">Terms of Service,</a>
-                      </span>
-                      UPDATED
-                      <span>
-                        <a href="">Privacy Notice</a>
-                      </span>
-                      , and
-                      <span>
-                        <a href="">Cookie Notice</a>
-                      </span>
-                      .
+            <div>
+              <div className="login-card mt-5" >
+                <div className="card card-design justify-content-space-around ">
+                  <div className="logo text-center">
+                    <p>
+                      <img src={logo} className="mx-auto" />
+                    </p>
+                    <p
+                      style={{
+                        fontFamily: "Open Sans",
+                        fontSize: 28,
+                        fontWeight: 700,
+                        color: "#336498",
+                      }}
+                    >
+                      Create an account
                     </p>
                   </div>
+                  <div className="px-4">
+                    <MDBInput
+                      className="mb-4"
+                      type="name"
+                      id="form7Example1"
+                      label="Name"
+                    />
+                    <MDBInput
+                      className="mb-4"
+                      type="email"
+                      id="form7Example1"
+                      label="Email address"
+                    />
+                    <MDBInput
+                      className="mb-4"
+                      type="Password"
+                      id="form7Example1"
+                      label="Create Password"
+                    />
+                    <MDBInput
+                      className="mb-4"
+                      type="password"
+                      id="form7Example2"
+                      label=" Confirm Password"
+                    />
+                    <MDBBtn type='submit' style={{fontSize:14,fontFamily:'Open Sans',fontWeight:500}}  className='mb-4' block>
+           create account
+            </MDBBtn>
 
-                  <div class="d-grid gap-2  mx-auto">
-                    <button class="btn btn-primary" type="button">
-                    Create account
-                    </button>
                   </div>
-                </form>
+
+                  <div
+                    className="text-center "
+                    style={{
+                      fontSize: 14,
+                      padding: 10,
+                      fontFamily: "Open Sans",
+                      fontWeight: 500,
+                    }}
+                  >
+                    <p>
+                      Copy By clicking create an account, you read and agree to
+                      &nbsp;
+                      <a href="" style={{ color: "#4285F4" }}>
+                        Privacy policy&nbsp;
+                      </a>
+                      and&nbsp;
+                      <a href="" style={{ color: "#4285F4" }}>
+                        Terms of service.
+                      </a>
+                    </p>
+                  </div>
+                  <div
+                    className="text-center"
+                    style={{ fontSize: 14, fontWeight: 500 }}
+                  >
+                    <p style={{ fontFamily: "Open Sans" }}>
+                      About? &nbsp;
+                      <a
+                        href=""
+                        style={{ fontFamily: "Open Sans", color: "#4285F4" }}
+                      >
+                        looksyou
+                      </a>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-sm-4">
-            <div className=" float-end">
-              <span>Already have an account? &nbsp;</span>
-              <span>
-                <button type="button" className="create-button" onClick={handleClick}>
-                login
+          <div className="col-sm-4">
+            <div className="header">
+            <div className="text-right mt-3">
+            <span className="text-account">
+            Already have an account? &nbsp;
+              <button type="sumbit" className="login-button" onClick={handleClick}>
+            login
+              </button>
+            </span>
+          </div>
+            </div>
+
+            <div className="carousel ">
+              <div
+                id="carouselExampleIndicators"
+                class="carousel slide"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img
+                      src={firstcaro}
+                      class="d-block w-100 caro-img"
+                      alt="..."
+                    />
+                    <div
+                      className="text-center px-5"
+                      style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                    >
+                      To know about jobs, business, economies trades and other
+                      service globally
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src={secondcaro}
+                      class="d-block w-100 caro-img"
+                      alt="..."
+                    />
+                    <div
+                      className="text-center px-5"
+                      style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                    >
+                      Find a service provider nearby you professionals,
+                      technicians & non - technicians
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src={thirdcaro}
+                      class="d-block w-100 caro-img"
+                      alt="..."
+                    />
+                    <div
+                      className="text-center px-5"
+                      style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                    >
+                      Find a service provider nearby you professionals,
+                      technicians & non - technicians
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src={fourthcaro}
+                      class="d-block w-100 caro-img"
+                      alt="..."
+                    />
+                    <div
+                      className="text-center px-5"
+                      style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                    >
+                      Find a service provider nearby you professionals,
+                      technicians & non - technicians
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src={fivethcaro}
+                      class="d-block w-100 caro-img"
+                      alt="..."
+                    />
+                    <div
+                      className="text-center px-5"
+                      style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                    >
+                      Media to share news, announcements thoughts, tales, live
+                      videos and all
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="carousel-indicators ">
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide-to="0"
+                      class="active"
+                      aria-current="true"
+                      aria-label="Slide 1"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide-to="1"
+                      aria-label="Slide 2"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide-to="2"
+                      aria-label="Slide 3"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide-to="3"
+                      aria-label="Slide 4"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide-to="4"
+                      aria-label="Slide 5"
+                    ></button>
+                  </div>
+                </div>
+                <button
+                  class="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="prev"
+                >
+                  <span
+                    class="carousel-control-prev-icon"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="visually-hidden">Previous</span>
                 </button>
-              </span>
-            </div>
-            <div style={{ marginTop: "150px" }}>
-            <div
-              id="carouselExampleInterval"
-              class="carousel slide"
-              data-bs-ride="carousel"
-            >
-              <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="2000">
-                  <div className="text-center">
-                    <img src={firstcaro} style={{ height: 348, width: 248 }} />
-                  </div>
-                  <div className="text-center px-5" style={{fontWeight:700,fontSize:18}}>
-                    To know about jobs, business, economies trades and other
-                    service globally
-                  </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="2000">
-                  <div className="text-center">
-                    <img src={secondcaro} style={{ height: 348, width: 248 }} />
-                  </div>
-                  <div className="text-center px-5"  style={{fontWeight:700,fontSize:18}}>
-                    Find a service provider nearby you professionals,
-                    technicians & non - technicians
-                  </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="2000">
-                  <div className="text-center ">
-                    <img src={thirdcaro} style={{ height: 348, width: 248  }} />
-                  </div>
-                  <div className="text-center px-5" style={{fontWeight:700,fontSize:18}}>
-                    Find a service provider nearby you professionals,
-                    technicians & non - technicians
-                  </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="2000">
-                  <div className="text-center">
-                    <img src={fourthcaro} style={{ height: 348, width: 248 }} />
-                  </div>
-                  <div className="text-center px-5"  style={{fontWeight:700,fontSize:18}} >
-                    Find a service provider nearby you professionals,
-                    technicians & non - technicians
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div className="text-center">
-                    <img src={fivethcaro} style={{ height: 348, width: 248 }} />
-                  </div>
-                  <div className="text-center px-5"  style={{fontWeight:700,fontSize:18}}>
-                    Media to share news, announcements thoughts, tales, live
-                    videos and all
-                  </div>
-                </div>
+                <button
+                  class="carousel-control-next"
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="next"
+                >
+                  <span
+                    class="carousel-control-next-icon"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
               </div>
-              <button
-                class="carousel-control-prev"
-                type="button"
-                data-bs-target="#carouselExampleInterval"
-                data-bs-slide="prev"
-              >
-                <span
-                  class="carousel-control-prev-icon"
-                  aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button
-                class="carousel-control-next"
-                type="button"
-                data-bs-target="#carouselExampleInterval"
-                data-bs-slide="next"
-              >
-                <span
-                  class="carousel-control-next-icon"
-                  aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Next</span>
-              </button>
             </div>
-          </div>
           </div>
         </div>
       </div>
