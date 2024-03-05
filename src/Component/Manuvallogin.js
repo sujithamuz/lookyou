@@ -23,10 +23,30 @@ import thirdcaro from "../images/thirdcaro.svg";
 import fourthcaro from "../images/fourthcaro.svg";
 import fivethcaro from "../images/fivethcaro.svg";
 import logo from "../images/logo.svg";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Manuvallogin() {
   const [centredModal, setCentredModal] = useState(false);
   const toggleOpen = () => setCentredModal(!centredModal);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://34.100.159.171:8080/api/v1/auth/sign-in/manual", {
+        email,
+        password,
+      });
+      const token = response.data.token;
+      console.log(token)
+   
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
+    navigate("/Homepage");
+  };
 
   return (
     <div>
@@ -52,7 +72,11 @@ function Manuvallogin() {
                     />
                     <div
                       className="text-center px-5"
-                       style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                      style={{
+                        fontWeight: 700,
+                        fontSize: 16,
+                        fontFamily: "Open Sans",
+                      }}
                     >
                       To know about jobs, business, economies trades and other
                       service globally
@@ -66,7 +90,11 @@ function Manuvallogin() {
                     />
                     <div
                       className="text-center px-5"
-                       style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                      style={{
+                        fontWeight: 700,
+                        fontSize: 16,
+                        fontFamily: "Open Sans",
+                      }}
                     >
                       Find a service provider nearby you professionals,
                       technicians & non - technicians
@@ -80,7 +108,11 @@ function Manuvallogin() {
                     />
                     <div
                       className="text-center px-5"
-                       style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                      style={{
+                        fontWeight: 700,
+                        fontSize: 16,
+                        fontFamily: "Open Sans",
+                      }}
                     >
                       Find a service provider nearby you professionals,
                       technicians & non - technicians
@@ -94,7 +126,11 @@ function Manuvallogin() {
                     />
                     <div
                       className="text-center px-5"
-                       style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                      style={{
+                        fontWeight: 700,
+                        fontSize: 16,
+                        fontFamily: "Open Sans",
+                      }}
                     >
                       Find a service provider nearby you professionals,
                       technicians & non - technicians
@@ -108,7 +144,11 @@ function Manuvallogin() {
                     />
                     <div
                       className="text-center px-5"
-                       style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                      style={{
+                        fontWeight: 700,
+                        fontSize: 16,
+                        fontFamily: "Open Sans",
+                      }}
                     >
                       Media to share news, announcements thoughts, tales, live
                       videos and all
@@ -178,15 +218,18 @@ function Manuvallogin() {
               </div>
             </div>
           </div>
-          <div className="col-sm-8" style={{ backgroundColor: "#F8FBFF",height:'100vh' }}>
-            {/* <div className="mt-3 text-right">
+          <div
+            className="col-sm-8"
+            style={{ backgroundColor: "#F8FBFF", height: "100vh" }}
+          >
+            <div className="mt-3 text-right">
               <span className="text-account">
                 Don't have an account? &nbsp;
                 <button type="sumbit" className="login-button">
                   create
                 </button>
               </span>
-            </div> */}
+            </div>
             <div className="manuval-logincard mt-8">
               <div className="card-design  ">
                 <div className="logo-manuval">
@@ -216,18 +259,22 @@ function Manuvallogin() {
                     Login
                   </p>
                 </div>
-                <form className="mx-10">
+                <form className="mx-10" onSubmit={handleSubmit}>
                   <MDBInput
                     className="mb-4"
                     type="email"
                     id="form2Example1"
                     label="Email address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                   <MDBInput
                     className="mb-4"
                     type="password"
                     id="form2Example2"
                     label="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
 
                   <MDBRow className="mb-4">
@@ -314,10 +361,13 @@ function Manuvallogin() {
                                 </p>
                               </div>
                             </MDBModalBody>
-                            <div   className="mx-auto mb-5" >
+                            <div className="mx-auto mb-5">
                               <MDBBtn
-                               
-            style={{color:'#ffff',fontFamily:'Open Sans',fontWeight:500}}
+                                style={{
+                                  color: "#ffff",
+                                  fontFamily: "Open Sans",
+                                  fontWeight: 500,
+                                }}
                                 type="button"
                                 onClick={toggleOpen}
                               >
@@ -353,9 +403,9 @@ function Manuvallogin() {
                   }}
                 >
                   <p>
-                    Copy By clicking create an account, you read and agree to &nbsp;
+                    Copy By clicking create an account, you read and agree to
+                    &nbsp;
                     <a href="" style={{ color: "#4285F4" }}>
-                      
                       Privacy policy&nbsp;
                     </a>
                     and&nbsp;
@@ -372,7 +422,6 @@ function Manuvallogin() {
                     fontWeight: 500,
                   }}
                 >
-
                   <p>
                     About? &nbsp;
                     <a href="" style={{ color: "#4285F4" }}>

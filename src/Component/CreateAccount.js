@@ -4,7 +4,7 @@ import secondcaro from "../images/secondcaro.svg";
 import thirdcaro from "../images/thirdcaro.svg";
 import fourthcaro from "../images/fourthcaro.svg";
 import fivethcaro from "../images/fivethcaro.svg";
-import { MDBInput ,MDBBtn} from "mdb-react-ui-kit";
+import { MDBInput, MDBBtn } from "mdb-react-ui-kit";
 import "./Login.css";
 import logo from "../images/logo.svg";
 import { useNavigate } from "react-router-dom";
@@ -20,7 +20,7 @@ function CreateAccount() {
         <div class="row ">
           <div
             class="col-sm-8"
-            style={{ backgroundColor: "#F8FBFF",height:'100vh'}}
+            style={{ backgroundColor: "#F8FBFF", height: "100vh" }}
           >
             <div>
               <div className="header">
@@ -28,7 +28,7 @@ function CreateAccount() {
               </div>
             </div>
             <div>
-              <div className="login-card mt-5" >
+              <div className="login-card mt-5">
                 <div className="card card-design justify-content-space-around ">
                   <div className="logo text-center">
                     <p>
@@ -70,10 +70,18 @@ function CreateAccount() {
                       id="form7Example2"
                       label=" Confirm Password"
                     />
-                    <MDBBtn type='submit' style={{fontSize:14,fontFamily:'Open Sans',fontWeight:500}}  className='mb-4' block>
-           create account
-            </MDBBtn>
-
+                    <MDBBtn
+                      type="submit"
+                      style={{
+                        fontSize: 14,
+                        fontFamily: "Open Sans",
+                        fontWeight: 500,
+                      }}
+                      className="mb-4"
+                      block
+                    >
+                      create account
+                    </MDBBtn>
                   </div>
 
                   <div
@@ -117,14 +125,18 @@ function CreateAccount() {
           </div>
           <div className="col-sm-4">
             <div className="header">
-            <div className="text-right mt-3">
-            <span className="text-account">
-            Already have an account? &nbsp;
-              <button type="sumbit" className="login-button" onClick={handleClick}>
-            login
-              </button>
-            </span>
-          </div>
+              <div className="text-right mt-3">
+                <span className="text-account">
+                  Already have an account? &nbsp;
+                  <button
+                    type="sumbit"
+                    className="login-button"
+                    onClick={handleClick}
+                  >
+                    login
+                  </button>
+                </span>
+              </div>
             </div>
 
             <div className="carousel ">
@@ -142,7 +154,11 @@ function CreateAccount() {
                     />
                     <div
                       className="text-center px-5"
-                      style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                      style={{
+                        fontWeight: 700,
+                        fontSize: 16,
+                        fontFamily: "Open Sans",
+                      }}
                     >
                       To know about jobs, business, economies trades and other
                       service globally
@@ -156,7 +172,11 @@ function CreateAccount() {
                     />
                     <div
                       className="text-center px-5"
-                      style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                      style={{
+                        fontWeight: 700,
+                        fontSize: 16,
+                        fontFamily: "Open Sans",
+                      }}
                     >
                       Find a service provider nearby you professionals,
                       technicians & non - technicians
@@ -170,7 +190,11 @@ function CreateAccount() {
                     />
                     <div
                       className="text-center px-5"
-                      style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                      style={{
+                        fontWeight: 700,
+                        fontSize: 16,
+                        fontFamily: "Open Sans",
+                      }}
                     >
                       Find a service provider nearby you professionals,
                       technicians & non - technicians
@@ -184,7 +208,11 @@ function CreateAccount() {
                     />
                     <div
                       className="text-center px-5"
-                      style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                      style={{
+                        fontWeight: 700,
+                        fontSize: 16,
+                        fontFamily: "Open Sans",
+                      }}
                     >
                       Find a service provider nearby you professionals,
                       technicians & non - technicians
@@ -198,7 +226,11 @@ function CreateAccount() {
                     />
                     <div
                       className="text-center px-5"
-                      style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                      style={{
+                        fontWeight: 700,
+                        fontSize: 16,
+                        fontFamily: "Open Sans",
+                      }}
                     >
                       Media to share news, announcements thoughts, tales, live
                       videos and all

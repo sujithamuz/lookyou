@@ -17,7 +17,9 @@ import { useNavigate } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
 import ForgotPassword from "./ForgotPassword";
 import axios from "axios";
+import { LoginSocialFacebook } from "reactjs-social-login";
 function Login() {
+  const [profile, setProfile] = useState(null);
   const [modalShow, setModalShow] = useState(false);
   const navigate = useNavigate("");
 
@@ -68,7 +70,11 @@ function Login() {
                   />
                   <div
                     className="text-center px-5"
-                    style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                    style={{
+                      fontWeight: 700,
+                      fontSize: 16,
+                      fontFamily: "Open Sans",
+                    }}
                   >
                     To know about jobs, business, economies trades and other
                     service globally
@@ -82,7 +88,11 @@ function Login() {
                   />
                   <div
                     className="text-center px-5"
-                    style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                    style={{
+                      fontWeight: 700,
+                      fontSize: 16,
+                      fontFamily: "Open Sans",
+                    }}
                   >
                     Find a service provider nearby you professionals,
                     technicians & non - technicians
@@ -96,7 +106,11 @@ function Login() {
                   />
                   <div
                     className="text-center px-5"
-                    style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                    style={{
+                      fontWeight: 700,
+                      fontSize: 16,
+                      fontFamily: "Open Sans",
+                    }}
                   >
                     Find a service provider nearby you professionals,
                     technicians & non - technicians
@@ -110,7 +124,11 @@ function Login() {
                   />
                   <div
                     className="text-center px-5"
-                    style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                    style={{
+                      fontWeight: 700,
+                      fontSize: 16,
+                      fontFamily: "Open Sans",
+                    }}
                   >
                     Find a service provider nearby you professionals,
                     technicians & non - technicians
@@ -124,7 +142,11 @@ function Login() {
                   />
                   <div
                     className="text-center px-5"
-                    style={{ fontWeight: 700, fontSize: 16,fontFamily:'Open Sans' }}
+                    style={{
+                      fontWeight: 700,
+                      fontSize: 16,
+                      fontFamily: "Open Sans",
+                    }}
                   >
                     Media to share news, announcements thoughts, tales, live
                     videos and all
@@ -143,7 +165,7 @@ function Login() {
                   ></button>
                   <button
                     type="button"
-                    data-bs-target="#carouselExampleIndicators" 
+                    data-bs-target="#carouselExampleIndicators"
                     data-bs-slide-to="1"
                     aria-label="Slide 2"
                   ></button>
@@ -198,7 +220,11 @@ function Login() {
           <div className="text-right mt-3">
             <span className="text-account">
               Don't have an account? &nbsp;
-              <button type="sumbit" className="login-button" onClick={handleClick}>
+              <button
+                type="sumbit"
+                className="login-button"
+                onClick={handleClick}
+              >
                 create
               </button>
             </span>
@@ -238,61 +264,183 @@ function Login() {
               <div className="d-flex flex-column justify-content-center  align-items-center">
                 <button
                   type="button"
-                  className="d-flex align-items-center justify-content-evenly google-button"
+                  className="d-flex align-items-center justify-content-between google-button"
                   onClick={() => login()}
                 >
                   <img src={google} />
-                  <span className="text">Login</span>
-                  <span className="text">with</span>
-                  <img src={google2} />
+                  <div>
+                    <span className="text">Login </span>
+                    <span className="text"> with</span>
+                  </div>
+                  <div style={{ letterSpacing: "0.1rem" }}>
+                    <span
+                      style={{
+                        fontFamily: "Open Sans",
+                        fontWeight: 700,
+                        fontSize: 14,
+                        color: "#EA4335",
+                      }}
+                    >
+                      G
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "Open Sans",
+                        fontWeight: 700,
+                        fontSize: 14,
+                        color: "#007830",
+                      }}
+                    >
+                      o
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "Open Sans",
+                        fontWeight: 700,
+                        fontSize: 14,
+
+                        color: " #FBBC04",
+                      }}
+                    >
+                      o
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "Open Sans",
+                        fontWeight: 700,
+                        fontSize: 14,
+                        color: "#EA4335",
+                      }}
+                    >
+                      g
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "Open Sans",
+                        fontWeight: 700,
+                        fontSize: 14,
+                        color: "#4285F4",
+                      }}
+                    >
+                      l
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "Open Sans",
+                        fontWeight: 700,
+                        fontSize: 14,
+                        color: "#007830",
+                      }}
+                    >
+                      e
+                    </span>
+                  </div>
                 </button>
+                {!profile ? (
+                  <LoginSocialFacebook
+                    appId="427797766247072"
+                    onResolve={(response) => {
+                      console.log(response);
+                      setProfile(response.data);
+                      console.log(response.data);
+                    }}
+                    onReject={(error) => {
+                      console.log(error);
+                    }}
+                  >
+                    <button
+                      type="button"
+                      className="d-flex align-items-center  justify-content-between google-button"
+                    >
+                      <img src={facebook} />
+                      <div>
+                        <span className="text">Login </span>
+                        <span className="text"> with</span>
+                      </div>
+                      <div>
+                        <span
+                          style={{
+                            fontFamily: "Open Sans",
+                            fontWeight: 700,
+                            fontSize: 14,
+                            color: "#4285F4",
+                            letterSpacing: "0.01rem",
+                          }}
+                        >
+                          Facebook
+                        </span>
+                      </div>
+                    </button>
+                  </LoginSocialFacebook>
+                ) : (
+                  ""
+                )}
+                {profile ? (
+                  <div>
+                    <h1>{profile.name}</h1>
+                    <img src={profile.picture.data.url} />
+                  </div>
+                ) : (
+                  ""
+                )}
                 <button
                   type="button"
-                  className="d-flex align-items-center justify-content-evenly google-button"
-                >
-                  <img src={facebook} />
-                  <span className="text">Login</span>
-                  <span className="text">with</span>
-                  <img src={facebook2} />
-                </button>
-                <button
-                  type="button"
-                  className="d-flex align-items-center justify-content-evenly google-button"
+                  className="d-flex align-items-center  justify-content-between google-button"
                   onClick={handle}
                 >
                   <img src={looksyou} />
-                  <span className="text">Login</span>
-                  <span className="text">with</span>
-                  <img src={look} />
+                  <div>
+                    <span className="text">Login </span>
+                    <span className="text"> with</span>
+                  </div>
+                  <div>
+                    <span
+                      style={{
+                        fontFamily: "Open Sans",
+                        fontWeight: 700,
+                        fontSize: 14,
+                        color: "#336498",
+                        letterSpacing: "0.01rem",
+                      }}
+                    >
+                      Lookyou
+                    </span>
+                  </div>
                 </button>
               </div>
               <div
-                  className="text-center "
-                  style={{
-                    fontSize: 14,
-                    padding: 10,
-                    fontFamily: "Open Sans",
-                    fontWeight: 500,
-                  }}
-                >
-                  <p>
-                    Copy By clicking create an account, you read and agree to &nbsp;
-                    <a href="" style={{ color: "#4285F4" }}>
-                      
-                      Privacy policy&nbsp;
-                    </a>
-                    and&nbsp;
-                    <a href="" style={{ color: "#4285F4" }}>
-                      Terms of service.
-                    </a>
-                  </p>
-                </div>
+                className="text-center "
+                style={{
+                  fontSize: 14,
+                  padding: 10,
+                  fontFamily: "Open Sans",
+                  fontWeight: 500,
+                }}
+              >
+                <p>
+                  Copy By clicking create an account, you read and agree to
+                  &nbsp;
+                  <a href="" style={{ color: "#4285F4" }}>
+                    Privacy policy&nbsp;
+                  </a>
+                  and&nbsp;
+                  <a href="" style={{ color: "#4285F4" }}>
+                    Terms of service.
+                  </a>
+                </p>
+              </div>
               <div
                 className="text-center"
                 style={{ fontSize: 14, fontWeight: 500 }}
               >
-                <p style={{fontFamily:"Open Sans"}}>
-                  About? &nbsp;<a href="" style={{fontFamily:"Open Sans",color: "#4285F4"}}>looksyou</a>{" "}
+                <p style={{ fontFamily: "Open Sans" }}>
+                  About? &nbsp;
+                  <a
+                    href=""
+                    style={{ fontFamily: "Open Sans", color: "#4285F4" }}
+                  >
+                    looksyou
+                  </a>
                 </p>
               </div>
             </div>
