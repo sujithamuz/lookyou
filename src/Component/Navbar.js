@@ -12,7 +12,12 @@ import post from "../images/navbar/post.svg";
 import notification from "../images/navbar/notification.svg";
 import "./Navbar.css";
 import Homepage from "./Homepage";
+import { useNavigate } from "react-router-dom";
 function Navbar() {
+  const navigate = useNavigate("");
+  const imageClick = () => {
+    navigate("./menu");
+  };
   return (
     <>
       <section>
@@ -33,7 +38,7 @@ function Navbar() {
                   <a href="">
                     <img src={trades} />
                   </a>
-                  <span  className="nav-text">Trades</span>
+                  <span className="nav-text">Trades</span>
                 </li>
                 <li>
                   <a href="">
@@ -90,7 +95,7 @@ function Navbar() {
                 </li>
                 <li>
                   <a href="">
-                    <img src={emoji} />
+                    <img src={emoji} onClick={() => imageClick()} />
                   </a>
                 </li>
               </ul>
@@ -98,9 +103,7 @@ function Navbar() {
           </nav>
         </div>
       </section>
-      <section>
-   
-      </section>
+      <section></section>
     </>
   );
 }
